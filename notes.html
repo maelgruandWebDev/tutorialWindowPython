@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Window Using Tkinter</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .explain {
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-align: center;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #code {
+            display: none;
+            background-color: #272822;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            width: 80%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        code {
+            display: block;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .bash, .python {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Create a Window Using Tkinter
+    </header>
+
+    <section class="explain">
+        <p>This page explains how to create a window in Python using the Tkinter module.<br>
+           Tkinter is a Python module that allows you to create GUI applications.</p>
+    </section>
+
+    <button id="showCode">📜 Show Code</button>
+    
+    <section id="code">
+        <p><strong>Setting Up the Environment</strong></p>
+        <code class="bash">
+mkdir PythonTuto
+cd PythonTuto
+# For Linux (module venv of Python)
+python3 -m venv env
+# For Windows
+python -m venv env
+
+# Activate the virtual environment
+# For Linux
+source env/bin/activate
+# For Windows
+env/Scripts/activate
+
+# Install Tkinter
+pip install tkinter
+# Or for Linux
+sudo apt install python3-tk
+        </code>
+
+        <p><strong>Python Code</strong></p>
+        <code class="python">
+import tkinter as tk
+
+# Traditional form
+root = tk.Tk()
+root.geometry("500x500")
+root.title("Tkinter Tutorial")
+root.mainloop()
+
+# Custom function
+
+def createWindow(title, size):
+    window = tk.Tk()
+    window.geometry(size)
+    window.title(title)
+    return window
+
+#In main file
+import window as win
+
+root = win.createWindow("A Tk Window", "500x500")
+root.mainloop()
+        </code>
+    </section>
+
+    <script>
+        const showCodeButton = document.getElementById('showCode');
+        const codeSection = document.getElementById('code');
+
+        showCodeButton.addEventListener('click', function() {
+            if (codeSection.style.display === 'none' || codeSection.style.display === '') {
+                codeSection.style.display = 'block';
+                showCodeButton.textContent = '📜 Hide Code';
+            } else {
+                codeSection.style.display = 'none';
+                showCodeButton.textContent = '📜 Show Code';
+            }
+        });
+    </script>
+
+</body>
+</html>
